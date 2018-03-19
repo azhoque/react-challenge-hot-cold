@@ -4,9 +4,9 @@ class GuessForm extends Component {
   onSubmit(event) {
     event.preventDefault();
     
-    if(this.props.makeGuess) {
+    if(this.props.onMakeGuess) {
       const value = this.input.value;
-      this.props.makeGuess(value);
+      this.props.onMakeGuess(value);
     }
     this.input.value = '';
     this.input.focus();

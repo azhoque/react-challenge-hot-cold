@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
-import GuessForm from "../components/GuessForm";
-import GuessCount from "../components/GuessCount";
+//import GuessForm from "../components/GuessForm";
+//import GuessCount from "../components/GuessCount";
 import ShowGuess from "../components/ShowGuess";
+import GuessSection from "../components/GuessSection";
 
 class App extends Component {
   constructor(props) {
@@ -61,12 +62,15 @@ class App extends Component {
         <Header 
           restartGame={() => this.restartGame()}
         />
-        <h1>{feedback}</h1>
-        <GuessForm />
-        <GuessCount guessCount={guessCount}/>
-       
-        
-       
+        <main role="main">
+            <GuessSection
+              feedback={feedback}
+              guessCount={guessCount}
+              onMakeGuess={guess => this.makeGuess(guess)}
+            />
+            <ShowGuess guesses={guesses} 
+            />
+          </main>
       </div>
     );
   }

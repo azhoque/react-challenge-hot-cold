@@ -1,13 +1,15 @@
 import React from 'react';
 import GuessCount from './GuessCount';
+import GuessList from './GuessList';
 
 export default function ShowGuess(props) {
   const { guesses } = props;
   const guessCount = guesses.length;
 
   return (
-    <section>
+    <div>
       <GuessCount guessCount={guessCount} />
-    </section>
+      <GuessList guesses={guesses} />
+    </div>
   );
 }
