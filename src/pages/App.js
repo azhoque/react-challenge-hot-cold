@@ -13,8 +13,6 @@ class App extends Component {
       feedback: "Make Your Guess!",
       correctAnswer: Math.round(Math.random() * 100) + 1
     };
-
-    this.makeGuess = this.makeGuess.bind(this)
   }
 
   restartGame() {
@@ -35,22 +33,16 @@ class App extends Component {
     const delta = Math.abs(guess - this.state.correctAnswer)
 
     let feedback; 
-    switch (true) {
-      case (delta >= 50):
-        feedback = "You're ice cold..."
-        break
-      case (delta >= 30):
-        feedback = "You're still cold..."
-        break
-      case (delta >= 10):
-        feedback = "You're warm..."
-        break
-      case (delta >= 1):
-        feedback = "You're hot!"
-        break
-      case (delta == 0):
-        feedback = "You got it!"
-        break
+    if (delta >= 50) {
+      feedback = "You're ice cold...";
+    } else if (delta >= 30) {
+      feedback = "You're still cold...";
+    } else if (delta >= 10) {
+      feedback = "You're warm...";
+    } else if (delta >= 1) {
+      feedback = "You're hot!"
+    } else {
+      feedback = "You got it!"
     }
 
     this.setState({
@@ -68,13 +60,13 @@ class App extends Component {
       <div className="game">
       
         <Header 
-          restartGame={this.restartGame}
+          restartGame={() => this.restartGame()}
         />
         <main role="main">
             <GuessSection
               feedback={feedback}
               guessCount={guessCount}
-              onMakeGuess={this.makeGuess}
+              onMakeGuess={guess => this.makeGuess(guess)}
             />
             <ShowGuess guesses={guesses} 
             />
