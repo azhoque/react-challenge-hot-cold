@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/GuessList.css';
 export default function GuessList(props) {
   const guesses = props.guesses.map((guess, index) => (
     <li key={index}>
@@ -8,7 +8,7 @@ export default function GuessList(props) {
   ));
 
   return (
-    <ul>
+    <ul className="show">
       {guesses}
     </ul>
   );

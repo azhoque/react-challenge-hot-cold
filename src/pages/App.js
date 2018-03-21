@@ -3,7 +3,9 @@ import Header from "../components/Header";
 //import GuessForm from "../components/GuessForm";
 //import GuessCount from "../components/GuessCount";
 import ShowGuess from "../components/ShowGuess";
-import GuessSection from "../components/GuessSection";
+import GuessSection from "../components/GuessSection"
+import Info from "../components/Info"
+//import NavBar from "../components/NavBar"
 
 class App extends Component {
   constructor(props) {
@@ -11,10 +13,18 @@ class App extends Component {
     this.state = {
       guesses: [],
       feedback: "Make Your Guess!",
-      correctAnswer: Math.round(Math.random() * 100) + 1
+      correctAnswer: Math.round(Math.random() * 100) + 1,
+      showInfo: true
     };
 
     this.makeGuess = this.makeGuess.bind(this)
+    this.setShowInfo = this.setShowInfo.bind(this)
+  }
+
+  setShowInfo(value) {
+    this.setState({
+      showInfo: value
+    })
   }
 
   restartGame() {
@@ -31,6 +41,7 @@ class App extends Component {
       this.setState({ feedback: "Please enter a valid number." })
       return;
     }
+
 
     const delta = Math.abs(guess - this.state.correctAnswer)
 
@@ -62,12 +73,17 @@ class App extends Component {
   }
 
   render() {
+    const renderInfo = this.state.showInfo 
+    ? <Info showInfoToggle={this.setShowInfo}/>
+    : undefined 
+
     const { feedback, guesses } = this.state;
     const guessCount = guesses.length;
     return (
       <div className="game">
       
         <Header 
+          showInfoToggle={this.setShowInfo}
           restartGame={this.restartGame}
         />
         <main role="main">
@@ -76,8 +92,9 @@ class App extends Component {
               guessCount={guessCount}
               onMakeGuess={this.makeGuess}
             />
-            <ShowGuess guesses={guesses} 
-            />
+            <ShowGuess guesses={guesses} />
+            {renderInfo}
+
           </main>
       </div>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/GuessForm.css';
 
 class GuessForm extends Component {
   onSubmit(event) {

@@ -1,9 +1,9 @@
 import React from 'react'
-
+import '../styles/GuessCount.css';
 const GuessCount = (props) => {
     return (
       <div>
-        <h2>Guess#{props.guessCount}</h2>
+        <h2 id="guess-cnt">Guess #<span id="count">{props.guessCount}</span>!</h2>
       </div>
     )
 }

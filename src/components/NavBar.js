@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/NavBar.css'
 
 const NavBar = (props) => {
     return (
@@ -6,7 +7,7 @@ const NavBar = (props) => {
         <ul>
             <li className="what">
                 {/* set up this link */}
-                <a href="">WHAT?</a>
+                <a href=" " onClick={() => props.showInfoToggle(true)}>WHAT?</a>
             </li>
             <li className="new">
                 {/* set up this link */}
