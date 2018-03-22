@@ -6,7 +6,7 @@ const Header = (props) => {
     return (
       <div>
         <header>
-            <NavBar restartGame={() => props.restartGame()}/>
+            <NavBar showInfoToggle={props.showInfoToggle} restartGame={() => props.restartGame()}/>
             <h1 className="header">HOT or COLD</h1>
         </header>
       </div>

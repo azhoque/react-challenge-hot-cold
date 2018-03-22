@@ -14,11 +14,12 @@ class App extends Component {
       guesses: [],
       feedback: "Make Your Guess!",
       correctAnswer: Math.round(Math.random() * 100) + 1,
-      showInfo: true
+      showInfo: false
     };
 
     this.makeGuess = this.makeGuess.bind(this)
     this.setShowInfo = this.setShowInfo.bind(this)
+    this.restartGame = this.restartGame.bind(this)
   }
 
   setShowInfo(value) {
@@ -74,8 +75,8 @@ class App extends Component {
 
   render() {
     const renderInfo = this.state.showInfo 
-    ? <Info showInfoToggle={this.setShowInfo}/>
-    : undefined 
+      ? <Info showInfoToggle={this.setShowInfo}/>
+      : undefined 
 
     const { feedback, guesses } = this.state;
     const guessCount = guesses.length;

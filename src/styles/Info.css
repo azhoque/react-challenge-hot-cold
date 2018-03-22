@@ -1,0 +1,9 @@
+.info-section {
+    position: fixed;
+    height: 90%;
+    width: 90%;
+    background: darkviolet;
+    z-index: 2;
+    top: 5%;
+    left: 5%;
+}
