@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import ShowGuess from "../components/ShowGuess";
 import GuessSection from "../components/GuessSection"
 import Info from "../components/Info"
+import Junk from "../components/Junk"
 //import NavBar from "../components/NavBar"
 
 class App extends Component {
@@ -87,6 +88,7 @@ class App extends Component {
           showInfoToggle={this.setShowInfo}
           restartGame={this.restartGame}
         />
+        <Junk />
         <main role="main">
             <GuessSection
               feedback={feedback}
