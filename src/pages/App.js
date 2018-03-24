@@ -60,7 +60,7 @@ class App extends Component {
       case (delta >= 1):
         feedback = "You're hot!"
         break
-      case (delta == 0):
+      case (delta === 0):
         feedback = "You got it!"
         break
     }
