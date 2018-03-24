@@ -5,7 +5,7 @@ import GuessList from './GuessList';
 
 export default function ShowGuess(props) {
   const { guesses } = props;
-  const guessCount = guesses.length;
+  const guessCount = guesses ? guesses.length : 0;
 
   return (
     <div className>
