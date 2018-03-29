@@ -7,4 +7,9 @@ describe('<GuessList />', () => {
   it('Renders without crashing', () => {
     shallow(<GuessList guesses={[]} />);
   });
+  it('Renders guess list', () => {
+    const wrapper = shallow (<GuessList guesses = {[1,10,20]}/>);
+    console.log(wrapper.find('li').text())
+
+  })
 });
