@@ -8,7 +8,7 @@ export default function ShowGuess(props) {
   const guessCount = guesses ? guesses.length : 0;
 
   return (
-    <div className>
+    <div>
       <GuessCount guessCount={guessCount} />
       <GuessList guesses={guesses} />
     </div>

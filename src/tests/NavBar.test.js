@@ -7,4 +7,11 @@ describe('<NavBar />', () => {
     it('Renders without crashing', () =>{
         shallow(<NavBar/>);
     });
+
+    it('Should fire the restartGame when NEWGAME is clicked', () => {
+        const callback = jest.fn();
+        const wrapper = shallow(<NavBar restartGame={callback} />);
+        wrapper.find('new').simulate('click');
+        expect(callback).toHaveBeenCalledWith();
+      })
 });

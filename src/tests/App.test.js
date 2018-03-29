@@ -17,4 +17,19 @@ describe('<App />', () => {
     expect(wrapper.state('feedback')).toEqual('You got it!');
    // expect(callback).toHaveBeenCalledWith(correctAnswer);
   });
+  
+  it('can restarts a game', () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({
+      guesses: [1, 2, 3, 4],
+      feedback: 'Great',
+      correctAnswer: -1 //why are we using -1 to restart
+    });
+    wrapper.instance().restartGame();
+    expect(wrapper.state('guesses')).toEqual([]);
+    expect(wrapper.state('feedback')).toEqual('Make your Guess!');
+    expect(wrapper.state('correctAnswer')).toBeGreaterThanOrEqual(0);
+    expect(wrapper.state('correctAnswer')).toBeLessThanOrEqual(100);
+  });
+
 });

@@ -16,7 +16,7 @@ describe('<GuessSection />', () => {
         wrapper.find('#userGuess').instance().value = value;
         wrapper.find('GuessForm form').simulate('submit');
         expect(callback).toHaveBeenCalledWith(value);
-      })
+      });
 });
 
 
