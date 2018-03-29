@@ -33,7 +33,14 @@ describe('<App />', () => {
   });
 
   it('can show and hide Info by changing state.showInfo', () => {
-    
+    const wrapper = mount(<App />)
+    wrapper.instance().setShowInfo(true)
+    wrapper.update()
+    expect(wrapper.find('Info').exists()).toEqual(true)
+
+    wrapper.instance().setShowInfo(false)
+    wrapper.update()
+    expect(wrapper.find('Info').exists()).toEqual(false)  
   })
 
 });
