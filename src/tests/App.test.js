@@ -8,9 +8,9 @@ describe('<App />', () => {
   it('Render without crashing', () => {
       shallow(<App />);
   });
-  it('Changes state.guesses in app when makeGuess is called', () => {
+  it('Changes state.guesses in app when makeGuess is called and adds feedback', () => {
     //const callback = jest.fn();
-    const wrapper = mount(<App />);// 
+    const wrapper = shallow(<App />);// 
     wrapper.setState ({correctAnswer : 50}); 
     wrapper.instance().makeGuess(50);
     expect(wrapper.state('guesses')).toEqual([50]);
@@ -23,7 +23,7 @@ describe('<App />', () => {
     wrapper.setState({
       guesses: [1, 2, 3, 4],
       feedback: 'Great',
-      correctAnswer: -1 //why are we using -1 to restart
+      //correctAnswer: -1 //why are we using -1 to restart
     });
     wrapper.instance().restartGame();
     expect(wrapper.state('guesses')).toEqual([]);
