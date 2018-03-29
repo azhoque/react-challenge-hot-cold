@@ -32,4 +32,8 @@ describe('<App />', () => {
     expect(wrapper.state('correctAnswer')).toBeLessThanOrEqual(100);
   });
 
+  it('can show and hide Info by changing state.showInfo', () => {
+    
+  })
+
 });
