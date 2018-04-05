@@ -1,6 +1,8 @@
 import React from 'react'
 import '../styles/Info.css'
 import {setShowInfo} from '../actions';
+import {connect} from 'react-redux'
+
 
  const Info = (props) => {
   return (
@@ -14,4 +16,4 @@ import {setShowInfo} from '../actions';
     </div>
   )
 }
-export default Info; 
+export default connect()(Info);

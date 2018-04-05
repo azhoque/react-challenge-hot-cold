@@ -1,13 +1,15 @@
 import React from 'react'
 import '../styles/NavBar.css'
 import {setShowInfo, restartGame} from '../actions';
+import {connect} from 'react-redux'
+
 
 const NavBar = props => {
     console.log(props);
     return (
       <nav className="top-nav">
         <ul>
-            <li className="what">
+            <li className="what hey">
                 {/* set up this link */}
                 <a onClick={() => props.dispatch(setShowInfo(true))}>WHAT?</a>
             </li>
@@ -23,4 +25,4 @@ const NavBar = props => {
       </nav>
     )
 }
-export default NavBar;
+export default connect()(NavBar);

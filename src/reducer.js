@@ -1,4 +1,8 @@
-import { SET_MAKEGUESS, SET_RESTARTGAME, SET_SHOWINFO } from "./actions";
+import {
+  SET_MAKEGUESS,
+  SET_RESTARTGAME,
+  SET_SHOWINFO
+} from "./actions";
 
 const initialState = {
   guesses: [],
@@ -39,21 +43,22 @@ export const gameReducer = (state = initialState, action) => {
       feedback,
       guesses: [...this.state.guesses, guess]
     });
+  }
+  
+  if (action.type === SET_RESTARTGAME) {
+    return Object.assign({}, state, {
+      guesses: [],
+      feedback: "Make your Guess!",
+      correctAnswer: Math.round(Math.random() * 100) + 1
+    });
+  }
 
-    if (action.type === SET_RESTARTGAME) {
-      return Object.assign({}, state, {
-        guesses: [],
-        feedback: "Make your Guess!",
-        correctAnswer: Math.round(Math.random() * 100) + 1
-      });
-    }
+  if (action.type == SET_SHOWINFO) {
+    console.log(action.value)
 
-    if (action.type === SET_SHOWINFO) {
-        
-        return Object.assign({}, state, {
-            showInfo: action.value
-        });
-      }
-    }
+    return Object.assign({}, state, {
+      showInfo: action.value
+    });
+  }
   return state;
 };
