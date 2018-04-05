@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import ShowGuess from "../components/ShowGuess";
 import GuessSection from "../components/GuessSection";
 import Info from "../components/Info";
+import {connect} from "react-redux";
 //import NavBar from "../components/NavBar"
 
 //class App extends Component {
@@ -105,13 +106,13 @@ import Info from "../components/Info";
 
 class App extends Component {
   render() {
-    const renderInfo = props.showInfo
+    const renderInfo = this.props.showInfo
     ? <Info />
     //? <Info showInfoToggle={this.setShowInfo}/>
     : undefined
 
     //const { feedback, guesses } = this.state;
-    const guessCount = guesses.length;
+    // const guessCount = guesses.length;
     return (
       <div className="game">
         <Header
@@ -120,11 +121,11 @@ class App extends Component {
         />
         <main role="main">
           <GuessSection
-            feedback={feedback}
-            guessCount={guessCount}
+            feedback={this.props.feedback}
+            guessCount={this.props.guessCount}
             //onMakeGuess={props.makeGuess}
           />
-          <ShowGuess guesses={guesses} />
+          <ShowGuess guesses={this.props.guesses} />
           {renderInfo}
         </main>
       </div>
@@ -132,14 +133,15 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = state => {
+  console.log(state)
   return {
     guesses: state.guesses,
     feedback: state.feedback,
     showInfo: state.showInfo,
     guessCount: state.guesses.length
   }
-
 }
 
-export default connect (mapStateToProps)(App);
+export default connect(mapStateToProps)(App);
+// export default App

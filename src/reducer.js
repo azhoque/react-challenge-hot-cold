@@ -51,9 +51,9 @@ export const gameReducer = (state = initialState, action) => {
     if (action.type === SET_SHOWINFO) {
         
         return Object.assign({}, state, {
-            showInfo: value
+            showInfo: action.value
         });
       }
-    return state;
-  }
+    }
+  return state;
 };
