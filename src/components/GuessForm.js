@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/GuessForm.css';
+import { makeGuess } from '../actions';
 
 class GuessForm extends Component {
   onSubmit(event) {
@@ -7,7 +8,7 @@ class GuessForm extends Component {
     
     if(this.props.onMakeGuess) {
       const value = this.input.value;
-      this.props.onMakeGuess(value);
+      this.props.dispatch(makeGuess(value));
     }
     this.input.value = '';
     this.input.focus();
@@ -35,4 +36,5 @@ class GuessForm extends Component {
     );
   }
 }
+
 export default GuessForm;

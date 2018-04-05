@@ -104,37 +104,24 @@ import {connect} from "react-redux";
 
 // export default App;
 
-class App extends Component {
-  render() {
-    const renderInfo = this.props.showInfo
-    ? <Info />
-    //? <Info showInfoToggle={this.setShowInfo}/>
-    : undefined
+const App = props => {
+  const renderInfo = props.showInfo
+      ? <Info />
+      : undefined
 
-    //const { feedback, guesses } = this.state;
-    // const guessCount = guesses.length;
-    return (
-      <div className="game">
-        <Header
-          //showInfoToggle={props.setShowInfo}
-          //restartGame={props.restartGame}
-        />
-        <main role="main">
-          <GuessSection
-            feedback={this.props.feedback}
-            guessCount={this.props.guessCount}
-            //onMakeGuess={props.makeGuess}
-          />
-          <ShowGuess guesses={this.props.guesses} />
-          {renderInfo}
-        </main>
-      </div>
-    );
-  }
+  return (
+    <div className="game">
+      <Header />
+      <main role="main">
+        <GuessSection />
+        <ShowGuess />
+        {renderInfo}
+      </main>
+  </div>
+  )
 }
 
 export const mapStateToProps = state => {
-  console.log(state)
   return {
     guesses: state.guesses,
     feedback: state.feedback,
@@ -144,4 +131,3 @@ export const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(App);
-// export default App

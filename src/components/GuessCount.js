@@ -1,10 +1,16 @@
 import React from 'react'
 import '../styles/GuessCount.css';
-const GuessCount = (props) => {
+import {connect} from "react-redux";
+
+const GuessCount = props => {
     return (
       <div>
         <h2 id="guess-cnt">Guess #<span id="count">{props.guessCount}</span>!</h2>
       </div>
     )
 }
-export default GuessCount;
+export const mapStateToProps = state => ({
+  guessCount: state.guesses.length
+});
+
+export default connect (mapStateToProps)(GuessCount);

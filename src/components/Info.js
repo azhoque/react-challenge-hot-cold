@@ -1,8 +1,10 @@
 import React from 'react'
 import '../styles/Info.css'
+import {setShowInfo} from '../actions';
+
  const Info = (props) => {
   return (
-    <div className="info-section" onClick={() => props.showInfoToggle(false)}>
+    <div className="info-section" onClick={() => props.dispatch(setShowInfo(false))}>
       <ul>
         <ol>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ol> 
         <ol>Magni sit consequatur a repudiandae porro quaerat provident adipisci.</ol> 
